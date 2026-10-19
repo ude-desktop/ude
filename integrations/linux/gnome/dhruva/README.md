@@ -1,30 +1,19 @@
-# Dhruva — UDE GNOME integration
+# Dhruva integration for UDE
 
 Upstream: https://github.com/NarkAgni/dhruva
 
-This integration installs the third-party **Dhruva** GNOME Shell dock extension. It is intended as a basis for UDE's single-taskbar layout on GNOME systems.
+Dhruva is an independent GNOME Shell dock extension (GPL-3.0). UDE does not bundle its source here.
 
-## Install
+## Uninstall
 
 From this directory:
 
 ```bash
-bash install.sh
+bash uninstall.sh
 ```
 
-Requires GNOME Shell, Git and Make. On Ubuntu, install the latter two with `sudo apt install git make`.
+Run as the logged-in desktop user, without `sudo`. This disables and removes the user-installed `dhruva@narkagni` extension. It does not reset Dhruva's saved preferences or change Ubuntu Dock or GNOME top-panel settings. Log out and back in afterward if necessary.
 
-The script clones the current upstream source into a temporary directory, runs its documented `make install` target and attempts to enable `dhruva@narkagni`. Log out and back in if needed.
+## Installation
 
-## Notes
-
-- UDE does **not** bundle or modify Dhruva's source code here.
-- Panel mode and GNOME top-panel replacement are **not automatically configured** by this script.
-- Review upstream changes before running: the script executes upstream installation code.
-- Dhruva is independently maintained and licensed under GPL-3.0. See the upstream repository for licence terms.
-- GNOME Shell version compatibility depends on the upstream release.
-
-## Upstream
-
-- Source: https://github.com/NarkAgni/dhruva
-- GNOME Extensions: https://extensions.gnome.org/extension/9495/dhruva/
+Follow the upstream installation instructions or use the UDE `install.sh` already in this directory.
