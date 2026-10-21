@@ -2,59 +2,38 @@
 
 **One desktop. Any system.**
 
-Universal Desktop Environment (UDE) is an open-source project aiming to provide a consistent, adaptable desktop interface across different operating systems.
+**UDE** is an experimental, open-source **cross-platform desktop shell / desktop environment** intended to provide a consistent, customisable graphical interface on Linux, Windows and macOS while using the host operating system's native applications and services.
 
-Rather than replacing the underlying operating system, UDE provides a unified graphical environment that integrates with existing system functionality.
+> **Status: concept / early development.** Platform support and architectural features below are targets, not a claim of completed implementations.
 
-The goal is to allow users to enjoy the same desktop experience regardless of the operating system they choose.
+## What developers can work on
 
-## Project Goals
+- **Desktop shell and window management:** configurable taskbar, app overview, window controls, tiling, task switching and responsive desktop layouts.
+- **Application launcher:** Windows 8-style tiles, GNOME-like overview and macOS-style launchpad layouts; real application discovery, categorisation and launching.
+- **Native integration:** host file managers, system settings, notifications, workspaces and application lifecycle on Linux, Windows and macOS.
+- **Linux desktop integration:** investigate GNOME, Nautilus, Wayland/X11 and packaging/session boundaries; favour host facilities instead of replacing them without reason.
+- **Modular UI:** optional components, accessible keyboard/touch operation, responsive layouts, theme settings and removable integrations.
 
-### Universal Desktop Interface
-A consistent, customisable desktop environment that can operate on different base systems, including Windows, Linux and macOS.
+UDE is **not** a compatibility layer that makes every `.exe`, `.deb` or `.app` work on every operating system. That is a separate problem; the initial scope is a consistent interface over each host's native capabilities.
 
-### Unified User Experience
-- Configurable desktop, taskbar and application launcher
-- Consistent window management and controls
-- Flexible layouts and appearance
-- Integrated system navigation and file management
-- Support for different screen sizes and input methods
+## Architecture in one minute
 
-### Native System Integration
-UDE aims to retain and integrate existing operating system functionality wherever practical, including native file managers, applications and system utilities.
+```text
+UDE desktop shell / launcher / taskbar / window controls
+                      ↕ host adapters
+ Linux desktop services | Windows shell APIs | macOS APIs
+                      ↕
+            Host OS and native apps
+```
 
-### Modular Architecture
-Components can be installed, enabled or replaced as required, allowing UDE to adapt to different host systems without unnecessary overhead.
+See [technical focus](docs/technical-focus.md), [developer onboarding](CONTRIBUTING.md) and the [UDE design sketches](https://github.com/ude-desktop/ude-desktop/tree/main/docs/design).
 
-## Design Principles
+## Where help is useful
 
-- **Universal** — One interface across multiple operating systems.
-- **Consistent** — Familiar controls and behaviour everywhere.
-- **Modular** — Adaptable to different systems and requirements.
-- **Efficient** — Lightweight, responsive and resource-conscious.
-- **Customisable** — Users control their desktop experience.
-- **Open** — Free and open-source development.
+Developers familiar with **desktop environments, compositors, Wayland, X11, GNOME extensions, GTK, Qt, Windows shell integration, macOS APIs, accessibility and app launchers** can help shape testable platform adapters and small prototypes. Browse [issues](../../issues) or open a scoped design question using the included templates.
 
-## Scope
+## Licence and status
 
-The initial focus is the **desktop interface itself**, rather than cross-platform application compatibility.
-
-UDE aims to provide a universal graphical shell that works with the applications and capabilities already available on its host operating system.
-
-Broader application compatibility and integration between operating systems may be explored in future development.
-
-## Development Status
-
-**Status: Concept / Early Development**
-
-UDE is currently in the early stages of design and development. Features described here represent project goals and are not necessarily implemented.
-
-Contributions, suggestions and feedback are welcome.
-
-## License
-
-Licensed under the [GNU General Public License v3.0](LICENSE).
-
----
+The repository carries the [GNU GPL v3](LICENSE). No comprehensive cross-platform release exists yet. Please distinguish prototypes, planned work and working features in contributions.
 
 *Universal Desktop Environment — One desktop. Any system.*
